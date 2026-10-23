@@ -1,0 +1,177 @@
+---
+import Base from '../layouts/Base.astro';
+import SideRays from '../components/SideRays.jsx';
+
+const links = [
+  { label: 'edgellm', href: 'https://edgellm.fr' },
+  { label: 'vector dynamics', href: 'https://vectordynamics.fr' },
+  { label: 'forward deployed engineer', href: 'https://autonomynet.vercel.app/' },
+  { label: 'book a call', href: 'https://cal.com/vector-dynamics/linkedin-consulting' },
+  { label: 'newsletter', href: 'https://vectordynamics.beehiiv.com' },
+];
+
+const socials = [
+  { label: 'gh', href: 'https://github.com/aiwithtk' },
+  { label: 'x', href: 'https://x.com/aiwithtk' },
+  { label: 'yt', href: 'https://www.youtube.com/@thiernokoyagbali' },
+  { label: 'linkedin', href: 'https://www.linkedin.com/in/thierno-koyagbali-7a9671154/' },
+];
+---
+
+<Base title="Thierno Koyagbali">
+  <div class="rays" aria-hidden="true">
+    <SideRays
+      client:only="react"
+      rayColor1="#FFC46B"
+      rayColor2="#96c8ff"
+      origin="top-right"
+      speed={2.5}
+      intensity={3}
+      spread={2.6}
+      density={5}
+      glow={1.2}
+      dust={0.2}
+      opacity={1}
+    />
+  </div>
+
+  <main>
+    <header>
+      <h1>Thierno Koyagbali</h1>
+      <p>L'IA est le nouveau pétrole du XXIe siècle</p>
+    </header>
+
+    <nav aria-label="links">
+      {
+        links.map((link) => (
+          <a href={link.href} target="_blank" rel="noopener noreferrer">
+            <span>{link.label}</span>
+            <span class="arrow" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M8 7h9v9" />
+              </svg>
+            </span>
+          </a>
+        ))
+      }
+    </nav>
+
+    <footer>
+      <ul>
+        {
+          socials.map((social) => (
+            <li>
+              <a href={social.href} target="_blank" rel="noopener noreferrer">
+                {social.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </footer>
+  </main>
+</Base>
+
+<style>
+  .rays {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+  }
+
+  main {
+    width: min(88vw, 30rem);
+    min-height: 100dvh;
+    margin-inline: auto;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  header p {
+    margin: 0.4rem 0 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+
+  nav {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 1.15rem;
+  }
+
+  .arrow {
+    display: inline-flex;
+    color: var(--muted);
+    transition:
+      transform 0.15s ease,
+      color 0.15s ease;
+  }
+
+  nav a:hover {
+    color: #ffffff;
+  }
+
+  nav a:hover .arrow {
+    color: var(--fg);
+    transform: translate(2px, -2px);
+  }
+
+  footer {
+    margin-top: 3.5rem;
+    border-top: 1px solid rgba(231, 229, 228, 0.08);
+    padding-top: 1.6rem;
+  }
+
+  footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  footer a {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  footer a:hover {
+    color: var(--fg);
+  }
+</style>
